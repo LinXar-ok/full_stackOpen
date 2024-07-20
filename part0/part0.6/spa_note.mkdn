@@ -1,0 +1,6 @@
+graph TD;
+A[User opens the application] --> B{Is it a new note creation?};
+B -- Yes --> C[Browser sends a POST request to new_note_spa];
+C --> D[Server responds with status code 201 Created];
+D --> E[Browser stays on the same page];
+B -- No --> F[Application continues normally];

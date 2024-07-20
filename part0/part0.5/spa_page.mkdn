@@ -1,0 +1,27 @@
+sequenceDiagram
+participant User
+participant Server
+
+    User->>Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate Server
+    Server-->>User: HTML document
+    deactivate Server
+
+    note right of User: Browser parses HTML and finds references to CSS and JS
+    User->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server-->>User: main.css file
+    deactivate Server
+
+    User->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate Server
+    Server-->>User: main.js file
+    deactivate Server
+
+    note right of User: Browser executes JavaScript code
+    User->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>User: JSON data with notes
+    deactivate Server
+
+    note right of User: Browser renders the page and uses JavaScript to display notes
